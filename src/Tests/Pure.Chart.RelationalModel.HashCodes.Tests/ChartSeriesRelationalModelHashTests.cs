@@ -8,7 +8,7 @@ using Guid = Pure.Primitives.Guid.Guid;
 
 namespace Pure.Chart.RelationalModel.HashCodes.Tests;
 
-public sealed record SeriesRelationalModelHashTests
+public sealed record ChartSeriesRelationalModelHashTests
 {
     private readonly byte[] _typePrefix =
     [
@@ -39,7 +39,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -47,8 +47,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(model);
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(model);
 
         Assert.True(expected.SequenceEqual(actual));
     }
@@ -62,7 +64,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -70,8 +72,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             chartId,
             legend,
@@ -91,7 +95,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -99,8 +103,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             chartId,
             legend,
@@ -120,7 +126,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -128,8 +134,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             new DeterminedHash(chartId),
             legend,
@@ -149,7 +157,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -157,8 +165,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             new DeterminedHash(chartId),
             legend,
@@ -178,7 +188,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -186,8 +196,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             chartId,
             new DeterminedHash(legend),
@@ -207,7 +219,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -215,8 +227,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             chartId,
             new DeterminedHash(legend),
@@ -236,7 +250,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -244,8 +258,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             new DeterminedHash(chartId),
             new DeterminedHash(legend),
@@ -265,7 +281,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -273,8 +289,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             new DeterminedHash(chartId),
             new DeterminedHash(legend),
@@ -294,7 +312,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -302,8 +320,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             chartId,
             legend,
@@ -323,7 +343,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -331,8 +351,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             chartId,
             legend,
@@ -352,7 +374,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -360,8 +382,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             new DeterminedHash(chartId),
             legend,
@@ -381,7 +405,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -389,8 +413,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             new DeterminedHash(chartId),
             legend,
@@ -410,7 +436,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -418,8 +444,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             chartId,
             new DeterminedHash(legend),
@@ -439,7 +467,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -447,8 +475,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             chartId,
             new DeterminedHash(legend),
@@ -468,7 +498,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -476,8 +506,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             new DeterminedHash(chartId),
             new DeterminedHash(legend),
@@ -497,7 +529,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -505,8 +537,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             new DeterminedHash(chartId),
             new DeterminedHash(legend),
@@ -526,7 +560,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -534,8 +568,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             chartId,
             legend,
@@ -555,7 +591,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -563,8 +599,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             chartId,
             legend,
@@ -584,7 +622,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -592,8 +630,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             new DeterminedHash(chartId),
             legend,
@@ -613,7 +653,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -621,8 +661,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             new DeterminedHash(chartId),
             legend,
@@ -642,7 +684,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -650,8 +692,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             chartId,
             new DeterminedHash(legend),
@@ -671,7 +715,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -679,8 +723,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             chartId,
             new DeterminedHash(legend),
@@ -700,7 +746,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -708,8 +754,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             new DeterminedHash(chartId),
             new DeterminedHash(legend),
@@ -729,7 +777,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -737,8 +785,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             new DeterminedHash(chartId),
             new DeterminedHash(legend),
@@ -758,7 +808,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -766,8 +816,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             chartId,
             legend,
@@ -787,7 +839,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -795,8 +847,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             chartId,
             legend,
@@ -816,7 +870,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -824,8 +878,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             new DeterminedHash(chartId),
             legend,
@@ -845,7 +901,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -853,8 +909,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             new DeterminedHash(chartId),
             legend,
@@ -874,7 +932,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -882,8 +940,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             chartId,
             new DeterminedHash(legend),
@@ -903,7 +963,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -911,8 +971,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             chartId,
             new DeterminedHash(legend),
@@ -932,7 +994,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -940,8 +1002,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             id,
             new DeterminedHash(chartId),
             new DeterminedHash(legend),
@@ -961,7 +1025,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -969,8 +1033,10 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        SeriesRelationalModelHash expected = new SeriesRelationalModelHash(model);
-        SeriesRelationalModelHash actual = new SeriesRelationalModelHash(
+        ChartSeriesRelationalModelHash expected = new ChartSeriesRelationalModelHash(
+            model
+        );
+        ChartSeriesRelationalModelHash actual = new ChartSeriesRelationalModelHash(
             new DeterminedHash(id),
             new DeterminedHash(chartId),
             new DeterminedHash(legend),
@@ -990,7 +1056,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -998,7 +1064,7 @@ public sealed record SeriesRelationalModelHashTests
             yAxisSource
         );
 
-        IEnumerable hashEnumerable = new SeriesRelationalModelHash(model);
+        IEnumerable hashEnumerable = new ChartSeriesRelationalModelHash(model);
 
         IEnumerator<byte> expectedHash = new DeterminedHash(
             _typePrefix
@@ -1033,7 +1099,7 @@ public sealed record SeriesRelationalModelHashTests
         IString xAxisSource = new RandomString();
         IString yAxisSource = new RandomString();
 
-        ISeriesRelationalModel model = new SeriesRelationalModel(
+        IChartSeriesRelationalModel model = new ChartSeriesRelationalModel(
             id,
             chartId,
             legend,
@@ -1050,6 +1116,6 @@ public sealed record SeriesRelationalModelHashTests
                 .Concat(new DeterminedHash(yAxisSource))
         );
 
-        Assert.Equal(expectedHash, new SeriesRelationalModelHash(model));
+        Assert.Equal(expectedHash, new ChartSeriesRelationalModelHash(model));
     }
 }
