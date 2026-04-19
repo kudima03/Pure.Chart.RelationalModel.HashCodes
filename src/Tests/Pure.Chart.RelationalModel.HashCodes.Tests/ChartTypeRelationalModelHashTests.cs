@@ -36,10 +36,7 @@ public sealed record ChartTypeRelationalModelHashTests
         IGuid id = new Guid();
         IString name = new RandomString();
 
-        IChartTypeRelationalModel model = new ChartTypeRelationalModel(
-            id,
-            name
-        );
+        IChartTypeRelationalModel model = new ChartTypeRelationalModel(id, name);
 
         ChartTypeRelationalModelHash expected = new ChartTypeRelationalModelHash(model);
         ChartTypeRelationalModelHash actual = new ChartTypeRelationalModelHash(model);
@@ -53,16 +50,10 @@ public sealed record ChartTypeRelationalModelHashTests
         IGuid id = new Guid();
         IString name = new RandomString();
 
-        IChartTypeRelationalModel model = new ChartTypeRelationalModel(
-            id,
-            name
-        );
+        IChartTypeRelationalModel model = new ChartTypeRelationalModel(id, name);
 
         ChartTypeRelationalModelHash expected = new ChartTypeRelationalModelHash(model);
-        ChartTypeRelationalModelHash actual = new ChartTypeRelationalModelHash(
-            id,
-            name
-        );
+        ChartTypeRelationalModelHash actual = new ChartTypeRelationalModelHash(id, name);
 
         Assert.True(expected.SequenceEqual(actual));
     }
@@ -73,10 +64,7 @@ public sealed record ChartTypeRelationalModelHashTests
         IGuid id = new Guid();
         IString name = new RandomString();
 
-        IChartTypeRelationalModel model = new ChartTypeRelationalModel(
-            id,
-            name
-        );
+        IChartTypeRelationalModel model = new ChartTypeRelationalModel(id, name);
 
         ChartTypeRelationalModelHash expected = new ChartTypeRelationalModelHash(model);
         ChartTypeRelationalModelHash actual = new ChartTypeRelationalModelHash(
@@ -93,10 +81,7 @@ public sealed record ChartTypeRelationalModelHashTests
         IGuid id = new Guid();
         IString name = new RandomString();
 
-        IChartTypeRelationalModel model = new ChartTypeRelationalModel(
-            id,
-            name
-        );
+        IChartTypeRelationalModel model = new ChartTypeRelationalModel(id, name);
 
         ChartTypeRelationalModelHash expected = new ChartTypeRelationalModelHash(model);
         ChartTypeRelationalModelHash actual = new ChartTypeRelationalModelHash(
@@ -113,10 +98,7 @@ public sealed record ChartTypeRelationalModelHashTests
         IGuid id = new Guid();
         IString name = new RandomString();
 
-        IChartTypeRelationalModel model = new ChartTypeRelationalModel(
-            id,
-            name
-        );
+        IChartTypeRelationalModel model = new ChartTypeRelationalModel(id, name);
 
         ChartTypeRelationalModelHash expected = new ChartTypeRelationalModelHash(model);
         ChartTypeRelationalModelHash actual = new ChartTypeRelationalModelHash(
@@ -133,17 +115,12 @@ public sealed record ChartTypeRelationalModelHashTests
         IGuid id = new Guid();
         IString name = new RandomString();
 
-        IChartTypeRelationalModel model = new ChartTypeRelationalModel(
-            id,
-            name
-        );
+        IChartTypeRelationalModel model = new ChartTypeRelationalModel(id, name);
 
         IEnumerable hashEnumerable = new ChartTypeRelationalModelHash(model);
 
         IEnumerator<byte> expectedHash = new DeterminedHash(
-            _typePrefix
-                .Concat(new DeterminedHash(id))
-                .Concat(new DeterminedHash(name))
+            _typePrefix.Concat(new DeterminedHash(id)).Concat(new DeterminedHash(name))
         ).GetEnumerator();
 
         bool equal = true;
@@ -167,15 +144,10 @@ public sealed record ChartTypeRelationalModelHashTests
         IGuid id = new Guid();
         IString name = new RandomString();
 
-        IChartTypeRelationalModel model = new ChartTypeRelationalModel(
-            id,
-            name
-        );
+        IChartTypeRelationalModel model = new ChartTypeRelationalModel(id, name);
 
         IEnumerable<byte> expectedHash = new DeterminedHash(
-            _typePrefix
-                .Concat(new DeterminedHash(id))
-                .Concat(new DeterminedHash(name))
+            _typePrefix.Concat(new DeterminedHash(id)).Concat(new DeterminedHash(name))
         );
 
         Assert.Equal(expectedHash, new ChartTypeRelationalModelHash(model));

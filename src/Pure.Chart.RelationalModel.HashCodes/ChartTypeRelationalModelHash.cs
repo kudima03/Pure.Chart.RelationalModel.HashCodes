@@ -37,7 +37,7 @@ public sealed record ChartTypeRelationalModelHash : IDeterminedHash
         : this(model.Id, model.Name) { }
 
     public ChartTypeRelationalModelHash(IGuid id, IString name)
-    : this(new DeterminedHash(id), name) { }
+        : this(new DeterminedHash(id), name) { }
 
     public ChartTypeRelationalModelHash(IDeterminedHash idHash, IString name)
         : this(idHash, new DeterminedHash(name)) { }

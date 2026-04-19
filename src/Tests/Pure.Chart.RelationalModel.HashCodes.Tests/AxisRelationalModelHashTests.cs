@@ -37,11 +37,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(model);
@@ -56,18 +52,10 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
-        AxisRelationalModelHash actual = new AxisRelationalModelHash(
-            id,
-            chartId,
-            legend
-        );
+        AxisRelationalModelHash actual = new AxisRelationalModelHash(id, chartId, legend);
 
         Assert.True(expected.SequenceEqual(actual));
     }
@@ -79,11 +67,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
@@ -102,11 +86,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
@@ -125,11 +105,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
@@ -148,11 +124,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
@@ -171,11 +143,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
@@ -194,11 +162,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
@@ -217,11 +181,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
@@ -240,11 +200,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         IEnumerable hashEnumerable = new AxisRelationalModelHash(model);
 
@@ -277,11 +233,7 @@ public sealed record AxisRelationalModelHashTests
         IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(
-            id,
-            chartId,
-            legend
-        );
+        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
 
         IEnumerable<byte> expectedHash = new DeterminedHash(
             _typePrefix
