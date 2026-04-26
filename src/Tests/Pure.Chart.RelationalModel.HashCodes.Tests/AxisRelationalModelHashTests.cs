@@ -120,9 +120,7 @@ public sealed record AxisRelationalModelHashTests
         IEnumerable hashEnumerable = new AxisRelationalModelHash(model);
 
         IEnumerator<byte> expectedHash = new DeterminedHash(
-            _typePrefix
-                .Concat(new DeterminedHash(id))
-                .Concat(new DeterminedHash(legend))
+            _typePrefix.Concat(new DeterminedHash(id)).Concat(new DeterminedHash(legend))
         ).GetEnumerator();
 
         bool equal = true;
@@ -149,9 +147,7 @@ public sealed record AxisRelationalModelHashTests
         IAxisRelationalModel model = new AxisRelationalModel(id, legend);
 
         IEnumerable<byte> expectedHash = new DeterminedHash(
-            _typePrefix
-                .Concat(new DeterminedHash(id))
-                .Concat(new DeterminedHash(legend))
+            _typePrefix.Concat(new DeterminedHash(id)).Concat(new DeterminedHash(legend))
         );
 
         Assert.Equal(expectedHash, new AxisRelationalModelHash(model));
