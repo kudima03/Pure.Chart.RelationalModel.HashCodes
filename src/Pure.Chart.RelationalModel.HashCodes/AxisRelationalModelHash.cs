@@ -39,22 +39,13 @@ public sealed record AxisRelationalModelHash : IDeterminedHash
     public AxisRelationalModelHash(IGuid id, IString legend)
         : this(id, new DeterminedHash(legend)) { }
 
-    public AxisRelationalModelHash(
-        IDeterminedHash idHash,
-        IString legend
-    )
+    public AxisRelationalModelHash(IDeterminedHash idHash, IString legend)
         : this(idHash, new DeterminedHash(legend)) { }
 
-    public AxisRelationalModelHash(
-        IGuid id,
-        IDeterminedHash legendHash
-    )
+    public AxisRelationalModelHash(IGuid id, IDeterminedHash legendHash)
         : this(new DeterminedHash(id), legendHash) { }
 
-    public AxisRelationalModelHash(
-        IDeterminedHash idHash,
-        IDeterminedHash legendHash
-    )
+    public AxisRelationalModelHash(IDeterminedHash idHash, IDeterminedHash legendHash)
     {
         _idHash = idHash;
         _legendHash = legendHash;
