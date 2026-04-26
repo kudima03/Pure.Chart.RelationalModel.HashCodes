@@ -31,61 +31,39 @@ public sealed record AxisRelationalModelHash : IDeterminedHash
 
     private readonly IDeterminedHash _idHash;
 
-    private readonly IDeterminedHash _chartIdHash;
-
     private readonly IDeterminedHash _legendHash;
 
     public AxisRelationalModelHash(IAxisRelationalModel model)
-        : this(model.Id, model.ChartId, model.Legend) { }
+        : this(model.Id, model.Legend) { }
 
-    public AxisRelationalModelHash(IGuid id, IGuid chartId, IString legend)
-        : this(new DeterminedHash(id), chartId, legend) { }
-
-    public AxisRelationalModelHash(IDeterminedHash idHash, IGuid chartId, IString legend)
-        : this(idHash, new DeterminedHash(chartId), legend) { }
-
-    public AxisRelationalModelHash(IGuid id, IDeterminedHash chartIdHash, IString legend)
-        : this(id, chartIdHash, new DeterminedHash(legend)) { }
-
-    public AxisRelationalModelHash(IGuid id, IGuid chartId, IDeterminedHash legendHash)
-        : this(new DeterminedHash(id), chartId, legendHash) { }
+    public AxisRelationalModelHash(IGuid id, IString legend)
+        : this(id, new DeterminedHash(legend)) { }
 
     public AxisRelationalModelHash(
         IDeterminedHash idHash,
-        IDeterminedHash chartIdHash,
         IString legend
     )
-        : this(idHash, chartIdHash, new DeterminedHash(legend)) { }
-
-    public AxisRelationalModelHash(
-        IDeterminedHash idHash,
-        IGuid chartId,
-        IDeterminedHash legendHash
-    )
-        : this(idHash, new DeterminedHash(chartId), legendHash) { }
+        : this(idHash, new DeterminedHash(legend)) { }
 
     public AxisRelationalModelHash(
         IGuid id,
-        IDeterminedHash chartIdHash,
         IDeterminedHash legendHash
     )
-        : this(new DeterminedHash(id), chartIdHash, legendHash) { }
+        : this(new DeterminedHash(id), legendHash) { }
 
     public AxisRelationalModelHash(
         IDeterminedHash idHash,
-        IDeterminedHash chartIdHash,
         IDeterminedHash legendHash
     )
     {
         _idHash = idHash;
-        _chartIdHash = chartIdHash;
         _legendHash = legendHash;
     }
 
     public IEnumerator<byte> GetEnumerator()
     {
         return new DeterminedHash(
-            TypePrefix.Concat(_idHash).Concat(_chartIdHash).Concat(_legendHash)
+            TypePrefix.Concat(_idHash).Concat(_legendHash)
         ).GetEnumerator();
     }
 

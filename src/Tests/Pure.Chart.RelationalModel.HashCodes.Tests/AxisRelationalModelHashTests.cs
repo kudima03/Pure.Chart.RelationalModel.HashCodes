@@ -34,10 +34,9 @@ public sealed record AxisRelationalModelHashTests
     public void ProduceCorrectHashFromModel()
     {
         IGuid id = new Guid();
-        IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
+        IAxisRelationalModel model = new AxisRelationalModel(id, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(model);
@@ -49,13 +48,12 @@ public sealed record AxisRelationalModelHashTests
     public void ProduceCorrectHashFromValues()
     {
         IGuid id = new Guid();
-        IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
+        IAxisRelationalModel model = new AxisRelationalModel(id, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
-        AxisRelationalModelHash actual = new AxisRelationalModelHash(id, chartId, legend);
+        AxisRelationalModelHash actual = new AxisRelationalModelHash(id, legend);
 
         Assert.True(expected.SequenceEqual(actual));
     }
@@ -64,53 +62,13 @@ public sealed record AxisRelationalModelHashTests
     public void ProduceCorrectHashFromIdHash()
     {
         IGuid id = new Guid();
-        IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
+        IAxisRelationalModel model = new AxisRelationalModel(id, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
             new DeterminedHash(id),
-            chartId,
-            legend
-        );
-
-        Assert.True(expected.SequenceEqual(actual));
-    }
-
-    [Fact]
-    public void ProduceCorrectHashFromChartIdHash()
-    {
-        IGuid id = new Guid();
-        IGuid chartId = new Guid();
-        IString legend = new RandomString();
-
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
-
-        AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
-        AxisRelationalModelHash actual = new AxisRelationalModelHash(
-            id,
-            new DeterminedHash(chartId),
-            legend
-        );
-
-        Assert.True(expected.SequenceEqual(actual));
-    }
-
-    [Fact]
-    public void ProduceCorrectHashFromIdHashChartIdHash()
-    {
-        IGuid id = new Guid();
-        IGuid chartId = new Guid();
-        IString legend = new RandomString();
-
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
-
-        AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
-        AxisRelationalModelHash actual = new AxisRelationalModelHash(
-            new DeterminedHash(id),
-            new DeterminedHash(chartId),
             legend
         );
 
@@ -121,15 +79,13 @@ public sealed record AxisRelationalModelHashTests
     public void ProduceCorrectHashFromLegendHash()
     {
         IGuid id = new Guid();
-        IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
+        IAxisRelationalModel model = new AxisRelationalModel(id, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
             id,
-            chartId,
             new DeterminedHash(legend)
         );
 
@@ -140,53 +96,13 @@ public sealed record AxisRelationalModelHashTests
     public void ProduceCorrectHashFromIdHashLegendHash()
     {
         IGuid id = new Guid();
-        IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
+        IAxisRelationalModel model = new AxisRelationalModel(id, legend);
 
         AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
         AxisRelationalModelHash actual = new AxisRelationalModelHash(
             new DeterminedHash(id),
-            chartId,
-            new DeterminedHash(legend)
-        );
-
-        Assert.True(expected.SequenceEqual(actual));
-    }
-
-    [Fact]
-    public void ProduceCorrectHashFromChartIdHashLegendHash()
-    {
-        IGuid id = new Guid();
-        IGuid chartId = new Guid();
-        IString legend = new RandomString();
-
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
-
-        AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
-        AxisRelationalModelHash actual = new AxisRelationalModelHash(
-            id,
-            new DeterminedHash(chartId),
-            new DeterminedHash(legend)
-        );
-
-        Assert.True(expected.SequenceEqual(actual));
-    }
-
-    [Fact]
-    public void ProduceCorrectHashFromHashes()
-    {
-        IGuid id = new Guid();
-        IGuid chartId = new Guid();
-        IString legend = new RandomString();
-
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
-
-        AxisRelationalModelHash expected = new AxisRelationalModelHash(model);
-        AxisRelationalModelHash actual = new AxisRelationalModelHash(
-            new DeterminedHash(id),
-            new DeterminedHash(chartId),
             new DeterminedHash(legend)
         );
 
@@ -197,17 +113,15 @@ public sealed record AxisRelationalModelHashTests
     public void EnumeratesAsUntyped()
     {
         IGuid id = new Guid();
-        IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
+        IAxisRelationalModel model = new AxisRelationalModel(id, legend);
 
         IEnumerable hashEnumerable = new AxisRelationalModelHash(model);
 
         IEnumerator<byte> expectedHash = new DeterminedHash(
             _typePrefix
                 .Concat(new DeterminedHash(id))
-                .Concat(new DeterminedHash(chartId))
                 .Concat(new DeterminedHash(legend))
         ).GetEnumerator();
 
@@ -230,15 +144,13 @@ public sealed record AxisRelationalModelHashTests
     public void ProducesCorrectHash()
     {
         IGuid id = new Guid();
-        IGuid chartId = new Guid();
         IString legend = new RandomString();
 
-        IAxisRelationalModel model = new AxisRelationalModel(id, chartId, legend);
+        IAxisRelationalModel model = new AxisRelationalModel(id, legend);
 
         IEnumerable<byte> expectedHash = new DeterminedHash(
             _typePrefix
                 .Concat(new DeterminedHash(id))
-                .Concat(new DeterminedHash(chartId))
                 .Concat(new DeterminedHash(legend))
         );
 
