@@ -12,7 +12,7 @@ dotnet build --no-restore -warnaserror
 dotnet format --verify-no-changes             # check code style (CI enforces this)
 dotnet format                                  # auto-fix code style
 dotnet test --no-build --verbosity normal --logger trx --collect:"XPlat Code Coverage"
-dotnet pack --configuration Release -p:PackageVersion=<version> --output .
+dotnet pack --configuration Release -p:Version=<version> --output .
 ```
 
 CI runs mutation testing with Stryker at a 99 % break threshold — run `dotnet stryker --mutation-level Complete --break-at 99` locally if you change implementation logic.
