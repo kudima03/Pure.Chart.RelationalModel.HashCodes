@@ -15,6 +15,8 @@ dotnet test --no-build --verbosity normal --logger trx --collect:"XPlat Code Cov
 dotnet pack --configuration Release -p:Version=<version> --output .
 ```
 
+CI additionally passes `-p:AssemblyVersion` (pinned to the major) and `-p:FileVersion`; see `.github/workflows/publish-nuget.yml`.
+
 CI runs mutation testing with Stryker at a 99 % break threshold — run `dotnet stryker --mutation-level Complete --break-at 99` locally if you change implementation logic.
 
 ## Architecture
