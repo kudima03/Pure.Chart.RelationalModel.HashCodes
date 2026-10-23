@@ -39,13 +39,16 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
 
     private readonly IDeterminedHash _yAxisSourceHash;
 
+    private readonly IDeterminedHash _lineTypeHash;
+
     public ChartSeriesRelationalModelHash(IChartSeriesRelationalModel model)
         : this(
             model.Id,
             model.ChartId,
             model.Legend,
             model.XAxisSource,
-            model.YAxisSource
+            model.YAxisSource,
+            model.LineType
         )
     { }
 
@@ -54,133 +57,17 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         IGuid chartId,
         IString legend,
         IString xAxisSource,
-        IString yAxisSource
+        IString yAxisSource,
+        IString lineType
     )
-        : this(new DeterminedHash(id), chartId, legend, xAxisSource, yAxisSource) { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IGuid chartId,
-        IString legend,
-        IString xAxisSource,
-        IString yAxisSource
-    )
-        : this(idHash, new DeterminedHash(chartId), legend, xAxisSource, yAxisSource) { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IDeterminedHash chartIdHash,
-        IString legend,
-        IString xAxisSource,
-        IString yAxisSource
-    )
-        : this(new DeterminedHash(id), chartIdHash, legend, xAxisSource, yAxisSource) { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IGuid chartId,
-        IString legend,
-        IString xAxisSource,
-        IDeterminedHash yAxisSourceHash
-    )
-        : this(new DeterminedHash(id), chartId, legend, xAxisSource, yAxisSourceHash) { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IGuid chartId,
-        IDeterminedHash legendHash,
-        IString xAxisSource,
-        IString yAxisSource
-    )
-        : this(new DeterminedHash(id), chartId, legendHash, xAxisSource, yAxisSource) { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IGuid chartId,
-        IString legend,
-        IDeterminedHash xAxisSourceHash,
-        IString yAxisSource
-    )
-        : this(new DeterminedHash(id), chartId, legend, xAxisSourceHash, yAxisSource) { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IGuid chartId,
-        IDeterminedHash legendHash,
-        IString xAxisSource,
-        IDeterminedHash yAxisSourceHash
-    )
-        : this(new DeterminedHash(id), chartId, legendHash, xAxisSource, yAxisSourceHash)
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IGuid chartId,
-        IDeterminedHash legendHash,
-        IDeterminedHash xAxisSourceHash,
-        IString yAxisSource
-    )
-        : this(new DeterminedHash(id), chartId, legendHash, xAxisSourceHash, yAxisSource)
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IDeterminedHash chartIdHash,
-        IString legend,
-        IDeterminedHash xAxisSourceHash,
-        IString yAxisSource
-    )
-        : this(new DeterminedHash(id), chartIdHash, legend, xAxisSourceHash, yAxisSource)
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IGuid chartId,
-        IString legend,
-        IDeterminedHash xAxisSourceHash,
-        IString yAxisSource
-    )
-        : this(idHash, new DeterminedHash(chartId), legend, xAxisSourceHash, yAxisSource)
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IGuid chartId,
-        IString legend,
-        IDeterminedHash xAxisSourceHash,
-        IDeterminedHash yAxisSourceHash
-    )
-        : this(new DeterminedHash(id), chartId, legend, xAxisSourceHash, yAxisSourceHash)
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IDeterminedHash chartIdHash,
-        IDeterminedHash legendHash,
-        IString xAxisSource,
-        IString yAxisSource
-    )
-        : this(new DeterminedHash(id), chartIdHash, legendHash, xAxisSource, yAxisSource)
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IGuid chartId,
-        IDeterminedHash legendHash,
-        IString xAxisSource,
-        IString yAxisSource
-    )
-        : this(idHash, new DeterminedHash(chartId), legendHash, xAxisSource, yAxisSource)
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IDeterminedHash chartIdHash,
-        IString legend,
-        IString xAxisSource,
-        IString yAxisSource
-    )
-        : this(idHash, chartIdHash, new DeterminedHash(legend), xAxisSource, yAxisSource)
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legend,
+            xAxisSource,
+            yAxisSource,
+            lineType
+        )
     { }
 
     public ChartSeriesRelationalModelHash(
@@ -188,9 +75,17 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         IGuid chartId,
         IString legend,
         IString xAxisSource,
-        IDeterminedHash yAxisSourceHash
+        IString yAxisSource,
+        IString lineType
     )
-        : this(idHash, new DeterminedHash(chartId), legend, xAxisSource, yAxisSourceHash)
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legend,
+            xAxisSource,
+            yAxisSource,
+            lineType
+        )
     { }
 
     public ChartSeriesRelationalModelHash(
@@ -198,9 +93,89 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         IDeterminedHash chartIdHash,
         IString legend,
         IString xAxisSource,
-        IDeterminedHash yAxisSourceHash
+        IString yAxisSource,
+        IString lineType
     )
-        : this(new DeterminedHash(id), chartIdHash, legend, xAxisSource, yAxisSourceHash)
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legend,
+            xAxisSource,
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IString legend,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legend,
+            xAxisSource,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IString yAxisSource,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legendHash,
+            xAxisSource,
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legend,
+            xAxisSourceHash,
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legendHash,
+            xAxisSource,
+            yAxisSourceHash,
+            lineType
+        )
     { }
 
     public ChartSeriesRelationalModelHash(
@@ -208,142 +183,16 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         IGuid chartId,
         IDeterminedHash legendHash,
         IDeterminedHash xAxisSourceHash,
-        IDeterminedHash yAxisSourceHash
+        IString yAxisSource,
+        IString lineType
     )
         : this(
             new DeterminedHash(id),
             chartId,
             legendHash,
             xAxisSourceHash,
-            yAxisSourceHash
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IDeterminedHash chartIdHash,
-        IDeterminedHash legendHash,
-        IString xAxisSource,
-        IDeterminedHash yAxisSourceHash
-    )
-        : this(
-            new DeterminedHash(id),
-            chartIdHash,
-            legendHash,
-            xAxisSource,
-            yAxisSourceHash
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IGuid chartId,
-        IDeterminedHash legendHash,
-        IString xAxisSource,
-        IDeterminedHash yAxisSourceHash
-    )
-        : this(
-            idHash,
-            new DeterminedHash(chartId),
-            legendHash,
-            xAxisSource,
-            yAxisSourceHash
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IGuid chartId,
-        IDeterminedHash legendHash,
-        IDeterminedHash xAxisSourceHash,
-        IString yAxisSource
-    )
-        : this(
-            idHash,
-            new DeterminedHash(chartId),
-            legendHash,
-            xAxisSourceHash,
-            yAxisSource
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IGuid id,
-        IDeterminedHash chartIdHash,
-        IDeterminedHash legendHash,
-        IDeterminedHash xAxisSourceHash,
-        IString yAxisSource
-    )
-        : this(
-            new DeterminedHash(id),
-            chartIdHash,
-            legendHash,
-            xAxisSourceHash,
-            yAxisSource
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IGuid chartId,
-        IString legend,
-        IDeterminedHash xAxisSourceHash,
-        IDeterminedHash yAxisSourceHash
-    )
-        : this(
-            idHash,
-            new DeterminedHash(chartId),
-            legend,
-            xAxisSourceHash,
-            yAxisSourceHash
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IDeterminedHash chartIdHash,
-        IString legend,
-        IDeterminedHash xAxisSourceHash,
-        IString yAxisSource
-    )
-        : this(
-            idHash,
-            chartIdHash,
-            new DeterminedHash(legend),
-            xAxisSourceHash,
-            yAxisSource
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IDeterminedHash chartIdHash,
-        IDeterminedHash legendHash,
-        IString xAxisSource,
-        IString yAxisSource
-    )
-        : this(
-            idHash,
-            chartIdHash,
-            legendHash,
-            new DeterminedHash(xAxisSource),
-            yAxisSource
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IDeterminedHash chartIdHash,
-        IString legend,
-        IString xAxisSource,
-        IDeterminedHash yAxisSourceHash
-    )
-        : this(
-            idHash,
-            chartIdHash,
-            new DeterminedHash(legend),
-            xAxisSource,
-            yAxisSourceHash
+            yAxisSource,
+            lineType
         )
     { }
 
@@ -352,14 +201,196 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         IDeterminedHash chartIdHash,
         IString legend,
         IDeterminedHash xAxisSourceHash,
-        IDeterminedHash yAxisSourceHash
+        IString yAxisSource,
+        IString lineType
     )
         : this(
             new DeterminedHash(id),
             chartIdHash,
             legend,
             xAxisSourceHash,
-            yAxisSourceHash
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IString lineType
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legend,
+            xAxisSourceHash,
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legend,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IString yAxisSource,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legendHash,
+            xAxisSource,
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IString yAxisSource,
+        IString lineType
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legendHash,
+            xAxisSource,
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IString xAxisSource,
+        IString yAxisSource,
+        IString lineType
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            new DeterminedHash(legend),
+            xAxisSource,
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IString legend,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legend,
+            xAxisSource,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legend,
+            xAxisSource,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legendHash,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legendHash,
+            xAxisSource,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legendHash,
+            xAxisSource,
+            yAxisSourceHash,
+            lineType
         )
     { }
 
@@ -368,46 +399,16 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         IGuid chartId,
         IDeterminedHash legendHash,
         IDeterminedHash xAxisSourceHash,
-        IDeterminedHash yAxisSourceHash
+        IString yAxisSource,
+        IString lineType
     )
         : this(
             idHash,
             new DeterminedHash(chartId),
             legendHash,
             xAxisSourceHash,
-            yAxisSourceHash
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IDeterminedHash chartIdHash,
-        IDeterminedHash legendHash,
-        IDeterminedHash xAxisSourceHash,
-        IString yAxisSource
-    )
-        : this(
-            idHash,
-            chartIdHash,
-            legendHash,
-            xAxisSourceHash,
-            new DeterminedHash(yAxisSource)
-        )
-    { }
-
-    public ChartSeriesRelationalModelHash(
-        IDeterminedHash idHash,
-        IDeterminedHash chartIdHash,
-        IDeterminedHash legendHash,
-        IString xAxisSource,
-        IDeterminedHash yAxisSourceHash
-    )
-        : this(
-            idHash,
-            chartIdHash,
-            legendHash,
-            new DeterminedHash(xAxisSource),
-            yAxisSourceHash
+            yAxisSource,
+            lineType
         )
     { }
 
@@ -416,14 +417,34 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         IDeterminedHash chartIdHash,
         IDeterminedHash legendHash,
         IDeterminedHash xAxisSourceHash,
-        IDeterminedHash yAxisSourceHash
+        IString yAxisSource,
+        IString lineType
     )
         : this(
             new DeterminedHash(id),
             chartIdHash,
             legendHash,
             xAxisSourceHash,
-            yAxisSourceHash
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legend,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineType
         )
     { }
 
@@ -432,14 +453,88 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         IDeterminedHash chartIdHash,
         IString legend,
         IDeterminedHash xAxisSourceHash,
-        IDeterminedHash yAxisSourceHash
+        IString yAxisSource,
+        IString lineType
     )
         : this(
             idHash,
             chartIdHash,
             new DeterminedHash(legend),
             xAxisSourceHash,
-            yAxisSourceHash
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IString yAxisSource,
+        IString lineType
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            legendHash,
+            new DeterminedHash(xAxisSource),
+            yAxisSource,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            new DeterminedHash(legend),
+            xAxisSource,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legend,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legendHash,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineType
         )
     { }
 
@@ -448,7 +543,656 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         IDeterminedHash chartIdHash,
         IDeterminedHash legendHash,
         IDeterminedHash xAxisSourceHash,
-        IDeterminedHash yAxisSourceHash
+        IString yAxisSource,
+        IString lineType
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            legendHash,
+            xAxisSourceHash,
+            new DeterminedHash(yAxisSource),
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            legendHash,
+            new DeterminedHash(xAxisSource),
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legendHash,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            new DeterminedHash(legend),
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineType
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IString lineType
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            legendHash,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            new DeterminedHash(lineType)
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IString legend,
+        IString xAxisSource,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legend,
+            xAxisSource,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IString legend,
+        IString xAxisSource,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legend,
+            xAxisSource,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IString xAxisSource,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legend,
+            xAxisSource,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IString legend,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legend,
+            xAxisSource,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legendHash,
+            xAxisSource,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legend,
+            xAxisSourceHash,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legendHash,
+            xAxisSource,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legendHash,
+            xAxisSourceHash,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legend,
+            xAxisSourceHash,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legend,
+            xAxisSourceHash,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legend,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legendHash,
+            xAxisSource,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legendHash,
+            xAxisSource,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IString xAxisSource,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            new DeterminedHash(legend),
+            xAxisSource,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IString legend,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legend,
+            xAxisSource,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legend,
+            xAxisSource,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartId,
+            legendHash,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legendHash,
+            xAxisSource,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legendHash,
+            xAxisSource,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legendHash,
+            xAxisSourceHash,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legendHash,
+            xAxisSourceHash,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legend,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            new DeterminedHash(legend),
+            xAxisSourceHash,
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            legendHash,
+            new DeterminedHash(xAxisSource),
+            yAxisSource,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            new DeterminedHash(legend),
+            xAxisSource,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legend,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IGuid chartId,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            new DeterminedHash(chartId),
+            legendHash,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IString yAxisSource,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            legendHash,
+            xAxisSourceHash,
+            new DeterminedHash(yAxisSource),
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IString xAxisSource,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            legendHash,
+            new DeterminedHash(xAxisSource),
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IGuid id,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            new DeterminedHash(id),
+            chartIdHash,
+            legendHash,
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IString legend,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
+    )
+        : this(
+            idHash,
+            chartIdHash,
+            new DeterminedHash(legend),
+            xAxisSourceHash,
+            yAxisSourceHash,
+            lineTypeHash
+        )
+    { }
+
+    public ChartSeriesRelationalModelHash(
+        IDeterminedHash idHash,
+        IDeterminedHash chartIdHash,
+        IDeterminedHash legendHash,
+        IDeterminedHash xAxisSourceHash,
+        IDeterminedHash yAxisSourceHash,
+        IDeterminedHash lineTypeHash
     )
     {
         _idHash = idHash;
@@ -456,6 +1200,7 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
         _legendHash = legendHash;
         _xAxisSourceHash = xAxisSourceHash;
         _yAxisSourceHash = yAxisSourceHash;
+        _lineTypeHash = lineTypeHash;
     }
 
     public IEnumerator<byte> GetEnumerator()
@@ -467,6 +1212,7 @@ public sealed record ChartSeriesRelationalModelHash : IDeterminedHash
                 .Concat(_legendHash)
                 .Concat(_xAxisSourceHash)
                 .Concat(_yAxisSourceHash)
+                .Concat(_lineTypeHash)
         ).GetEnumerator();
     }
 

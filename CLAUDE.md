@@ -27,7 +27,7 @@ This is an **implementation library** — four `sealed record` types, no interfa
 - `ChartRelationalModelHash` — Id, Title, Description, TypeId, XAxisId, YAxisId
 - `ChartTypeRelationalModelHash` — Id, Name
 - `AxisRelationalModelHash` — Id, Legend
-- `ChartSeriesRelationalModelHash` — Id, ChartId, Legend, XAxisSource, YAxisSource
+- `ChartSeriesRelationalModelHash` — Id, ChartId, Legend, XAxisSource, YAxisSource, LineType
 
 **Hashing pattern:** Each type holds a hard-coded 16-byte `TypePrefix` (a static readonly field) that is prepended to the concatenated field hashes before the final `DeterminedHash` is produced. This guarantees no cross-type hash collisions.
 
