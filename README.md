@@ -20,7 +20,7 @@ Each field can independently be supplied either as a raw primitive (`IGuid` / `I
 | `ChartRelationalModelHash` | Id, Title, Description, TypeId, XAxisId, YAxisId |
 | `ChartTypeRelationalModelHash` | Id, Name |
 | `AxisRelationalModelHash` | Id, Legend |
-| `ChartSeriesRelationalModelHash` | Id, ChartId, Legend, XAxisSource, YAxisSource |
+| `ChartSeriesRelationalModelHash` | Id, ChartId, Legend, XAxisSource, YAxisSource, LineType |
 
 All types are in the `Pure.Chart.RelationalModel.HashCodes` namespace.
 
@@ -33,7 +33,7 @@ All types are in the `Pure.Chart.RelationalModel.HashCodes` namespace.
 
 ## Dependencies
 
-- [`Pure.Chart.RelationalModel.Abstractions`](https://github.com/kudima03/Pure.Chart.RelationalModel.Abstractions/tree/0.1.0-preview.6.0.0) — interfaces for chart relational model entities (`IChartRelationalModel`, `IChartTypeRelationalModel`, `IAxisRelationalModel`, `IChartSeriesRelationalModel`)
+- [`Pure.Chart.RelationalModel.Abstractions`](https://github.com/kudima03/Pure.Chart.RelationalModel.Abstractions/tree/0.1.0-preview.7.0.0) — interfaces for chart relational model entities (`IChartRelationalModel`, `IChartTypeRelationalModel`, `IAxisRelationalModel`, `IChartSeriesRelationalModel`)
 - [`Pure.HashCodes`](https://github.com/kudima03/Pure.HashCodes/tree/2.1.0) — core `DeterminedHash` implementation that wraps `IGuid` / `IString` primitives into enumerable byte sequences
 
 ## Target Frameworks
