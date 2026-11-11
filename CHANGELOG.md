@@ -6,6 +6,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.1.0-preview.3.1.0] — 2026-11-11
+
+### Added
+
+- Target framework `net11.0`.
+
+### Changed
+
+- Requires `Pure.Chart.RelationalModel.Abstractions`
+  0.1.0-preview.7.1.0 and `Pure.HashCodes` 2.2.0.
+
 ## [0.1.0-preview.3.0.0] — 2026-10-23
 
 ### Changed
