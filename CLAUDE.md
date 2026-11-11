@@ -37,7 +37,7 @@ This is an **implementation library** — four `sealed record` types, no interfa
 - `Pure.Chart.RelationalModel.Abstractions` — entity interfaces consumed by the convenience `(IChartRelationalModel model)` constructors.
 - `Pure.HashCodes` — provides `DeterminedHash`, which wraps `IGuid` / `IString` primitives and is used to produce the final hash from the concatenated byte sequence.
 
-**Multi-targeting:** net7.0, net8.0, net9.0, net10.0. All types must remain AOT-compatible (`IsAotCompatible = true`).
+**Multi-targeting:** net7.0, net8.0, net9.0, net10.0, net11.0. All types must remain AOT-compatible (`IsAotCompatible = true`).
 
 **Package validation:** `EnablePackageValidation = true` with `PackageValidationBaselineVersion = 0.1.0-preview.3.0.0`. Breaking API changes fail the build.
 
